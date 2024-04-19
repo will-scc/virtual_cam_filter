@@ -21,7 +21,7 @@ def detectFaceOpenCVDnn(net, frame, conf_threshold=0.5):
     frameWidth = frame.shape[1]
     blob = cv2.dnn.blobFromImage(frame, 1.0, (300, 300), [104, 117, 123], False, False)
 
-    net.setInput(blob)0
+    net.setInput(blob)
     detections = net.forward()
     bboxes = []
     for i in range(detections.shape[2]):
