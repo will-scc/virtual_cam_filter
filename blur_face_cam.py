@@ -65,13 +65,14 @@ with pyvirtualcam.Camera(width=1280, height=720, fps=60) as cam:
 
             cv2.normalize(frame, frame, 0, 255, cv2.NORM_MINMAX)
             
-            #cam.send(frame)
-            #cam.sleep_until_next_frame()
             # Increase brightness
             #brightness_factor = 2.5  # Adjust this value as needed
             #brightened_frame = cv2.convertScaleAbs(frame, alpha=brightness_factor, beta=0)
 
-            cv2.imshow('Face Blur using DNN', frame)
+            cam.send(frame)
+            cam.sleep_until_next_frame()
+
+            #cv2.imshow('Face Blur using DNN', frame)
 
         except Exception as e:
             print(f'exc: {e}')
